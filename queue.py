@@ -1,64 +1,36 @@
-class Node :
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+from collections import deque
 
-class Queue :
-    def __init__(self,max_size):
-        self.front = None
-        self.rear = None
-        self.size = 0
+class Queue:
+    def __init__(self, max_size=50):
+        self.queue = deque()
         self.max_size = max_size
-    
+
     def is_empty(self):
-        return self.size == 0
-    
+        return len(self.queue) == 0
+
     def is_full(self):
-        return self.size == self.max_size
-    
-    def enqueue(self, data):
+        return len(self.queue) == self.max_size
+
+    def enqueue(self, passenger):
         if self.is_full():
             return False
-        
-        new_node = Node(data)
-        
-        if self.rear is None:
-            self.front = self.rear = new_node
-        else:
-            self.rear.next = new_node
-            self.rear = new_node
-        
-        self.size += 1
+        self.queue.append(passenger)
+        return True
 
     def dequeue(self):
         if self.is_empty():
             return None
-        
-        removed_data = self.front.data
-        self.front = self.front.next
-        
-        if self.front is None:
-            self.rear = None
-        
-        self.size -= 1
-        return removed_data
-    
+        return self.queue.popleft()
+
     def peek(self):
         if self.is_empty():
             return None
-        return self.front.data
-    
+        return self.queue[0]
+
     def get_size(self):
-        items = []
-        current = self.front
-        while current:
-            items.append(current.data)
-            current = current.next
         return {
-            "size": self.size,
-            "items": items,
-            "is_full": self.is_full(),   
+            "size": len(self.queue),
+            "items": list(self.queue),
+            "is_full": self.is_full(),
             "is_empty": self.is_empty()
-            }
-    def __repr__(self):
-        return f"Queue(size={self.size}, max_size={self.max_size} ,elements={self.get_size()['items']})"
+        }
