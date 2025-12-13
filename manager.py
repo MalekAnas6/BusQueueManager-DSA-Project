@@ -38,3 +38,5 @@ class Manager:
                 logs.append(f"Passenger {passenger_name} unloaded from Bus {bus.bus_ID}.")
                 break
         return logs
+    
+    
