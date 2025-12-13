@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from manager import Manager  # حسبي الله ونعم الوكيل
+from manager import Manager
 
 class App:
     def __init__(self, root):
@@ -8,7 +8,7 @@ class App:
         self.root.title("Bus Management System")
         self.root.geometry("850x550")
         
-        self.manager = Manager()   # حسبي الله ونعم الوكيل للمره التانيه
+        self.manager = Manager()
 
         # design
         self.bg = "#f4f4f9"
