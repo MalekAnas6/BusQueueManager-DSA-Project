@@ -1,5 +1,5 @@
-from .bus import Bus
-from .queue import Queue
+from bus import Bus
+from queue import Queue
 
 class Manager:
     def __init__(self):
