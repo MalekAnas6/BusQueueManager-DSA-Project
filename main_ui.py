@@ -24,15 +24,9 @@ class BusQueueApp:
         
         self.root.configure(bg=self.colors["bg"])
         self.manager = Manager()
-        self._initialize_dummy_data()
         self.metro_manager = MetroManager()
         self._setup_styles()
         self._create_layout()
-
-    def _initialize_dummy_data(self):
-        if not self.manager.buses:
-            self.manager.add_bus("BUS-101", 15)
-            self.manager.add_bus("BUS-202", 20)
 
     def _setup_styles(self):
         style = ttk.Style()
