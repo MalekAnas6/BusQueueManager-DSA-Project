@@ -15,6 +15,7 @@ class Metro:
         self.head = None 
         self.wagon_count = 0
 
+
     # Add Function
     def add_wagon(self, wagon_id, capacity):
         new_wagon = WagonNode(wagon_id, capacity)
